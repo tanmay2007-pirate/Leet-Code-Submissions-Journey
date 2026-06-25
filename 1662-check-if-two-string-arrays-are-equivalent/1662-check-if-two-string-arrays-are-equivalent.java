@@ -11,7 +11,11 @@ class Solution {
             sb2.append(word2[i]);
         }
 
-        return sb.toString().equals(sb2.toString());
+        if(sb.toString().equals(sb2.toString())){
+            return true;
+        }else{
+            return false;
+        }
 
     }
 }
