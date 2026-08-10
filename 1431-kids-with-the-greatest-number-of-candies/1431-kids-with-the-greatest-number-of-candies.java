@@ -3,15 +3,10 @@ class Solution {
         
         ArrayList<Boolean> list = new ArrayList<>();
         
-        
+        int max = getmax(candies);
         for(int i = 0 ; i < candies.length ; i++){
             int n = candies[i] + extraCandies;
-            int max = Integer.MIN_VALUE;
-            for(int j = 0 ; j < candies.length ; j++){
-                if(candies[j] > max){
-                    max = candies[j];
-                } 
-            }
+            
             if(n < max){
                 list.add(false);
             }else{
@@ -23,5 +18,16 @@ class Solution {
 
         return list;
         
+    }
+
+
+    public static int getmax(int [] values){
+        int max = Integer.MIN_VALUE;
+                for(int j = 0 ; j < values.length ; j++){
+                    if(values[j] > max){
+                        max = values[j];
+                    } 
+                }
+                return max;
     }
 }
