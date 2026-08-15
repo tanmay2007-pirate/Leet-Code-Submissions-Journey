@@ -2,32 +2,35 @@ import java.util.*;
 class Solution {
     public boolean isPalindrome(String s) {
         
-        StringBuilder sb = new StringBuilder();
+        int l = 0, r = s.length() - 1;
 
-        String a_l = s.toLowerCase();
+        while (l < r) {
+            char a = s.charAt(l);
+            char b = s.charAt(r);
 
-        for(int i = 0 ; i < s.length() ; i++){
-            if((a_l.charAt(i) >= 0 && a_l.charAt(i) <= 47) || (a_l.charAt(i) >= 58 && a_l.charAt(i) <= 64) ||(a_l.charAt(i) >= 91 && a_l.charAt(i) <= 96) || (a_l.charAt(i) >= 123 && a_l.charAt(i) <= 127)   ){
+            if (!((a >= 'a' && a <= 'z') ||
+                  (a >= 'A' && a <= 'Z') ||
+                  (a >= '0' && a <= '9'))) {
+                l++;
                 continue;
-
-            }else{
-                sb.append(a_l.charAt(i));
             }
-        }
 
-
-        int lp = 0 ;
-        int rp = sb.length() -1;
-
-        while(lp < rp){
-            if(sb.charAt(lp) != sb.charAt(rp) ){
-                return false;
+            if (!((b >= 'a' && b <= 'z') ||
+                  (b >= 'A' && b <= 'Z') ||
+                  (b >= '0' && b <= '9'))) {
+                r--;
+                continue;
             }
-            lp++;
-            rp--;
+
+            if (a >= 'A' && a <= 'Z') a += 32;
+            if (b >= 'A' && b <= 'Z') b += 32;
+
+            if (a != b) return false;
+
+            l++;
+            r--;
         }
 
         return true;
-
     }
 }
