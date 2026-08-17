@@ -8,7 +8,7 @@ class Solution {
         while(x > 0){
             int last_digit = x % 10;
             revnum = revnum * 10 + last_digit;
-            x /= 10;
+            x =x/10;
         }
         return revnum == num ;
     }
