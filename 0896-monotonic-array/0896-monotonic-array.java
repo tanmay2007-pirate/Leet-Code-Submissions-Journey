@@ -11,8 +11,12 @@ class Solution {
             if(nums[i] > nums[i-1]){
                 dec = false;
             }
+
+            if(!inc && !dec){
+                return false;
+            }
         }
 
-        return inc || dec;
+        return true;
     }
 }
